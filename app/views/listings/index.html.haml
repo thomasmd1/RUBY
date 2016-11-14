@@ -1,0 +1,34 @@
+- @listings.each do |listing|
+  %h2 #{listing.title}
+  .row
+    .col-xs-2
+      =image_tag listing.picture, height: '150', width: '150'
+    .col-xs-10
+      .label.label-primary
+        #{listing.category.title}
+      %br
+      /%b
+      /  ="150$"
+      %p
+        #{listing.description}
+      .clearfix
+        %br/
+      %a.btn.btn-primary.pull-right{"data-do" => "showContactModal", "data-id" => "8", "data-user" => "", :href => "/users/sign_in"} Contact seller
+  %hr
+
+
+
+-# %table.table.table-striped
+-#   %tr
+-#     %th.text-danger= "id"
+-#     %th.text-danger= "title"
+-#     %th.text-danger= "categorie"
+  -# - @listings.each do |listing|
+  -#   %tr
+  -#     %td
+  -#       = "#{listing.id} "
+  -#     %td
+  -#       = "#{listing.title} "
+  -#     %td
+  -#       = "#{listing.category.title}"
+  -# %br

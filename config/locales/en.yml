@@ -21,5 +21,56 @@
 
 en:
   main_baseline: "You're going to find"
-  search_place: "S"
+  search_placeholder: "What are you searching for?"
   search: "Search"
+  create_listing: "Create my listing"
+  contact: "Contact seller"
+  required_field: "* Required field"
+  errors:
+    one: "erreur"
+    other: "erreurs"
+  your_email: "Your E-mail address"
+  your_message: "Your message"
+  send: "Send"
+  save: "Save"
+  choose_category: "Choose a category"
+  my_account: "My account"
+  logout: "Logout"
+  sign_in: "Login"
+  message: "Message"
+  image: "Image"
+  price: "Price"
+  date: "Date"
+  my_contacts: "My contacts"
+  my_messages: "My messages"
+  my_profile: "My profile"
+  account:
+    navs:
+      my_contacts: "My contacts"
+      my_messages: "My messages"
+      my_profile: "My profile"
+  time:
+    formats:
+      default: "%Y-%m-%d %H:%M"
+  activerecord:
+    attributes:
+      listing:
+        title: "Title"
+        description: "Description"
+        picture: "Choose a picture"
+        price: "Price"
+        category_id: "Catégory"
+    errors:
+      models:
+        listing:
+          attributes:
+            email:
+              blank: "Email cannot be blank"
+            title:
+              blank: "Title cannot be blank"
+            description:
+              blank: "Description cannot be blank"
+            picture:
+              blank: "You must choose a picture"
+            price:
+              blank: "Price cannot be blank"

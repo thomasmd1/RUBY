@@ -5,19 +5,20 @@
       =image_tag listing.picture, height: '150', width: '150'
     .col-xs-10
       .label.label-primary
-        #{listing.category.title}
+      =link_to listing.category.title, listings_path(category_id: listing.category.id)
       %br
-      /%b
-      /  ="150$"
+      %b
+        ="#{listing.price} $"
       %p
         #{listing.description}
       .clearfix
         %br/
-      %a.btn.btn-primary.pull-right{"data-do" => "showContactModal", "data-id" => "8", "data-user" => "", :href => "/users/sign_in"} Contact seller
+      %a.btn.btn-primary.pull-right{"data-do" => "showContactModal", "data-id" => "#{listing.id}","data-user" => "#{current_user.try(:id)}"}= t('contact')
+
   %hr
 
 
-
+= render partial: '/modals/modal.html.haml'
 -# %table.table.table-striped
 -#   %tr
 -#     %th.text-danger= "id"

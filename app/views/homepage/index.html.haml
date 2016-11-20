@@ -4,6 +4,6 @@
   = form_tag listings_path, method: :get , class: 'form form-horizontal' do
     .form-group
       .col-xs-10
-        = text_field_tag 'keywords', nil, class: 'form-control',placeholder:t('search_place')
+        = text_field_tag 'keywords', nil, class: 'form-control',placeholder:t('search_placeholder')
       .col-xs-2
         = submit_tag t('search'), class: 'btn btn-success'

@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
 
   def index
-    @listings = Listing.all
+    @listings = Listing.search(params)
   end
 
   def show
@@ -9,7 +9,9 @@ class ListingsController < ApplicationController
   end
 
   def new
+    #redirect_to new_user_session_path unless current_user
     @listing = Listing.new
+
   end
 
   def create
@@ -29,11 +31,16 @@ class ListingsController < ApplicationController
   def destroy
   end
 
+  def contact
+    Contact.generate(params,current_user)
+    render nothing:true
+  end
+
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:listing).permit(:title, :description, :picture,:category_id)
+      params.require(:listing).permit(:title, :description, :picture,:category_id, :price).merge(user_id: current_user.id)
     end
 
 end

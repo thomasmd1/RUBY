@@ -32435,3 +32435,71 @@ Processing by Account::UsersController#index as HTML
 Completed 200 OK in 178ms (Views: 151.8ms | ActiveRecord: 6.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2016-11-20 23:49:30 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomepageController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering homepage/index.html.haml within layouts/application
+  Rendered homepage/index.html.haml within layouts/application (10.8ms)
+  Rendered shared/_header.html.haml (23.9ms)
+Completed 200 OK in 986ms (Views: 959.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-11-20 23:49:33 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"GSSDWQQL+CZ0QmvxChnzlcxt3eEdvEIzKZ0AY3mzIEDQ9yfiCL7nhXdzbL0lxMJ/HRHLp/ZTAREk0uHQu4YkHg==", "locale"=>"en"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"GSSDWQQL+CZ0QmvxChnzlcxt3eEdvEIzKZ0AY3mzIEDQ9yfiCL7nhXdzbL0lxMJ/HRHLp/ZTAREk0uHQu4YkHg==", "locale"=>"en"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (76.5ms)
+  Rendered shared/_header.html.haml (19.2ms)
+Completed 200 OK in 212ms (Views: 163.8ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-11-20 23:49:41 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ccGUewRljk49lp6c+t3TJgiCMR+3kQpVKar60s0wiA24EjDACNCR7T6nmdDVAOLM2f4nWVx+SXck5RthDwWMUw==", "user"=>{"email"=>"benjamin.thomas@ynov.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "benjamin.thomas@ynov.com"], ["LIMIT", 1]]
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2016-11-20 22:49:41 UTC], ["last_sign_in_at", 2016-11-20 22:24:54 UTC], ["sign_in_count", 6], ["updated_at", 2016-11-20 22:49:41 UTC], ["id", 2]]
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 390ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-20 23:49:41 +0100
+Processing by HomepageController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering homepage/index.html.haml within layouts/application
+  Rendered homepage/index.html.haml within layouts/application (8.7ms)
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (15.1ms)
+Completed 200 OK in 88ms (Views: 81.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/fr" for 127.0.0.1 at 2016-11-20 23:49:45 +0100
+Processing by HomepageController#index as HTML
+  Parameters: {"locale"=>"fr"}
+  Rendering homepage/index.html.haml within layouts/application
+  Rendered homepage/index.html.haml within layouts/application (5.6ms)
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (31.0ms)
+Completed 200 OK in 184ms (Views: 173.0ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/account/users" for 127.0.0.1 at 2016-11-20 23:49:46 +0100
+Processing by Account::UsersController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/users/index.html.haml within layouts/account
+  Rendered account/users/index.html.haml within layouts/account (50.6ms)
+  Rendered shared/_header.html.haml (8.9ms)
+  Rendered account/shared/_nav.html.haml (6.6ms)
+Completed 200 OK in 236ms (Views: 215.9ms | ActiveRecord: 2.4ms)
+
+

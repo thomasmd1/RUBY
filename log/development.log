@@ -40275,3 +40275,2013 @@ app/controllers/account/comments_controller.rb:3:in `create'
   Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
   Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (72.0ms)
+Started POST "/__web_console/repl_sessions/52925f01f8c176bfa985b23a0f2ae95f/trace" for 127.0.0.1 at 2016-11-21 13:21:29 +0100
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:23:05 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.8ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (2.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (33.3ms)
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (44.1ms)
+Completed 200 OK in 218ms (Views: 156.0ms | ActiveRecord: 18.2ms)
+
+
+Started POST "/account/comments" for 127.0.0.1 at 2016-11-21 13:23:08 +0100
+Processing by Account::CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"28OIiVWR5ayn7H/tVhpp2CXc19jAGvLYRARrRNJByi0jog81ByMovsO0YLnjlK4/fgXZRSQBJ/TDVnqxl+FWwQ==", "comment"=>{"content"=>"ncncncn", "listing_id"=>"25"}, "commit"=>"Submit", "locale"=>"en"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms)
+
+
+  
+RuntimeError (<ActionController::Parameters {"utf8"=>"✓", "authenticity_token"=>"28OIiVWR5ayn7H/tVhpp2CXc19jAGvLYRARrRNJByi0jog81ByMovsO0YLnjlK4/fgXZRSQBJ/TDVnqxl+FWwQ==", "comment"=>{"content"=>"ncncncn", "listing_id"=>"25"}, "commit"=>"Submit", "locale"=>"en", "controller"=>"account/comments", "action"=>"create"} permitted: false>):
+  
+app/controllers/account/comments_controller.rb:3:in `create'
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.1ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.0ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.1ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (68.8ms)
+Started POST "/account/comments" for 127.0.0.1 at 2016-11-21 13:23:17 +0100
+Processing by Account::CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"28OIiVWR5ayn7H/tVhpp2CXc19jAGvLYRARrRNJByi0jog81ByMovsO0YLnjlK4/fgXZRSQBJ/TDVnqxl+FWwQ==", "comment"=>{"content"=>"ncncncn", "listing_id"=>"25"}, "commit"=>"Submit", "locale"=>"en"}
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.9ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "listing_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "ncncncn"], ["user_id", 4], ["listing_id", 25], ["created_at", 2016-11-21 12:23:17 UTC], ["updated_at", 2016-11-21 12:23:17 UTC]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/listings/25
+Completed 302 Found in 105ms (ActiveRecord: 24.8ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:23:17 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.6ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (37.8ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (23.5ms)
+Completed 200 OK in 193ms (Views: 125.9ms | ActiveRecord: 20.1ms)
+
+
+Started POST "/account/comments" for 127.0.0.1 at 2016-11-21 13:25:31 +0100
+Processing by Account::CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7Cuf5TAht6yuJ9hmnwk+w1pv/8mBLIlhuLaY95vYYZ0UShhZYpN6vsp/xzIqh/kkAbbxVGU3XE0/5IkC3nj9cQ==", "comment"=>{"content"=>"d", "listing_id"=>"25"}, "commit"=>"Submit", "locale"=>"en"}
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (3.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "listing_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "d"], ["user_id", 4], ["listing_id", 25], ["created_at", 2016-11-21 12:25:31 UTC], ["updated_at", 2016-11-21 12:25:31 UTC]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/listings/25
+Completed 302 Found in 87ms (ActiveRecord: 29.1ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:25:31 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (2.9ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (3.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (25.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (10.9ms)
+Completed 200 OK in 164ms (Views: 111.2ms | ActiveRecord: 22.6ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:28:13 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (2.7ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (10.1ms)
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (9.3ms)
+Completed 200 OK in 118ms (Views: 106.1ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:28:14 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (8.5ms)
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (10.9ms)
+Completed 200 OK in 87ms (Views: 78.5ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:28:22 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  Rendered listings/show.html.haml within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (Illegal nesting: content can't be both given on the same line as %h3 and nested within it.):
+    1: %h2= "Defail view for listing #{@listing.id}"
+    2: %h3="#{@listing.id} - #{@listing.title}"
+    3: %h3="#{@listing.category.title}"
+    4:   =image_tag @listing.picture, height: '150', width: '150'
+    5: %br
+    6: ="#{@listing.description}"
+    7: 
+  
+app/views/listings/show.html.haml:4
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (13.7ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.1ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (74.7ms)
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:28:31 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  Rendered listings/show.html.haml within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (Illegal nesting: content can't be both given on the same line as %h3 and nested within it.):
+    1: %h2= "Defail view for listing #{@listing.id}"
+    2: %h3="#{@listing.id} - #{@listing.title}"
+    3:   %h3="#{@listing.category.title}"
+    4: =image_tag @listing.picture, height: '150', width: '150'
+    5: %br
+    6: ="#{@listing.description}"
+  
+app/views/listings/show.html.haml:3
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (16.9ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.5ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (71.0ms)
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:28:35 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (5.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (12.6ms)
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (20.0ms)
+Completed 200 OK in 110ms (Views: 90.3ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:31:41 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.5ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (4.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (46.0ms)
+Completed 500 Internal Server Error in 104ms (ActiveRecord: 25.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `comments' for nil:NilClass):
+    10:   %input{type:'hidden',name:'comment[listing_id]',value:"#{@listing.id}"}
+    11:   =submit_tag 'Submit', class:'btn btn-warning'
+    12: 
+    13:   - @listings.comments.each do |c|
+    14:     .row
+    15:       .col-xs-2
+    16:         ="#{c.content}"
+  
+app/views/listings/show.html.haml:13:in `block in _app_views_listings_show_html_haml__1132956106147621751_49519960'
+app/views/listings/show.html.haml:8:in `_app_views_listings_show_html_haml__1132956106147621751_49519960'
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (16.7ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (73.8ms)
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:31:53 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (2.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (13.5ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 2.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment' for nil:NilClass):
+    10:   %input{type:'hidden',name:'comment[listing_id]',value:"#{@listing.id}"}
+    11:   =submit_tag 'Submit', class:'btn btn-warning'
+    12: 
+    13:   - @listings.comment.each do |c|
+    14:     .row
+    15:       .col-xs-2
+    16:         ="#{c.content}"
+  
+app/views/listings/show.html.haml:13:in `block in _app_views_listings_show_html_haml__1132956106147621751_51367420'
+app/views/listings/show.html.haml:8:in `_app_views_listings_show_html_haml__1132956106147621751_51367420'
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.9ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.4ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (72.1ms)
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:32:00 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  Rendered listings/show.html.haml within layouts/application (98.0ms)
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (46.8ms)
+Completed 200 OK in 232ms (Views: 205.1ms | ActiveRecord: 20.2ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:32:17 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  Rendered listings/show.html.haml within layouts/application (49.6ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `full_name' for #<Comment:0x000000060713d0>):
+    13:   - @listing.comment.each do |c|
+    14:     .row
+    15:       .col-xs-2
+    16:         ="#{c.full_name}"
+    17:       .col-xs-2
+    18:         ="#{c.content}"
+    19: 
+  
+app/views/listings/show.html.haml:16:in `block (2 levels) in _app_views_listings_show_html_haml__1132956106147621751_50751280'
+app/views/listings/show.html.haml:13:in `block in _app_views_listings_show_html_haml__1132956106147621751_50751280'
+app/views/listings/show.html.haml:8:in `_app_views_listings_show_html_haml__1132956106147621751_50751280'
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (15.1ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.2ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (85.1ms)
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:32:26 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (3.7ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (5.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (4.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (29.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (9.1ms)
+Completed 200 OK in 115ms (Views: 96.1ms | ActiveRecord: 16.3ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:32:35 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.5ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (4.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (1.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  Rendered listings/show.html.haml within layouts/application (37.9ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 7.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `users' for #<Comment:0x007f3f1c815d00>
+Did you mean?  user
+               user=):
+    13:   - @listing.comment.each do |c|
+    14:     .row
+    15:       .col-xs-2
+    16:         ="#{c.users.full_name}"
+    17:       .col-xs-2
+    18:         ="#{c.content}"
+    19: 
+  
+app/views/listings/show.html.haml:16:in `block (2 levels) in _app_views_listings_show_html_haml__1132956106147621751_69954517768360'
+app/views/listings/show.html.haml:13:in `block in _app_views_listings_show_html_haml__1132956106147621751_69954517768360'
+app/views/listings/show.html.haml:8:in `_app_views_listings_show_html_haml__1132956106147621751_69954517768360'
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.1ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.9ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (72.9ms)
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:33:17 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (55.8ms)
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 19.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment' for #<Listing:0x007f3f11f3aaa0>
+Did you mean?  comments
+               comments=):
+    10:   %input{type:'hidden',name:'comment[listing_id]',value:"#{@listing.id}"}
+    11:   =submit_tag 'Submit', class:'btn btn-warning'
+    12: 
+    13:   - @listing.comment.each do |c|
+    14:     .row
+    15:       .col-xs-2
+    16:         ="#{c.user.full_name}"
+  
+app/views/listings/show.html.haml:13:in `block in _app_views_listings_show_html_haml__1132956106147621751_69954430421540'
+app/views/listings/show.html.haml:8:in `_app_views_listings_show_html_haml__1132956106147621751_69954430421540'
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (15.6ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (11.1ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (64.2ms)
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:33:30 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (3.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  Rendered listings/show.html.haml within layouts/application (70.1ms)
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 14.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `users' for #<Comment:0x000000059a7478>
+Did you mean?  user
+               user=):
+    13:   - @listing.comments.each do |c|
+    14:     .row
+    15:       .col-xs-2
+    16:         ="#{c.users}"
+    17:       .col-xs-2
+    18:         ="#{c.content}"
+    19: 
+  
+app/views/listings/show.html.haml:16:in `block (2 levels) in _app_views_listings_show_html_haml__1132956106147621751_48364200'
+app/views/listings/show.html.haml:13:in `block in _app_views_listings_show_html_haml__1132956106147621751_48364200'
+app/views/listings/show.html.haml:8:in `_app_views_listings_show_html_haml__1132956106147621751_48364200'
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.6ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (70.9ms)
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:33:34 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (4.7ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (1.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (72.1ms)
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (18.2ms)
+Completed 200 OK in 155ms (Views: 136.2ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:33:40 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.6ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (4.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (5.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (41.0ms)
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (17.8ms)
+Completed 200 OK in 141ms (Views: 120.0ms | ActiveRecord: 14.8ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:33:47 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (2.9ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (4.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (26.9ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (12.4ms)
+Completed 200 OK in 107ms (Views: 93.9ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:35:05 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (4.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (1.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (22.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (10.6ms)
+Completed 200 OK in 107ms (Views: 96.9ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:35:15 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.8ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (3.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (30.7ms)
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (7.6ms)
+Completed 200 OK in 117ms (Views: 102.0ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:35:17 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (2.9ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (4.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (27.5ms)
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (18.1ms)
+Completed 200 OK in 107ms (Views: 86.1ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:35:18 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (3.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (31.2ms)
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (12.6ms)
+Completed 200 OK in 123ms (Views: 105.5ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:35:19 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (2.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (4.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (22.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (9.6ms)
+Completed 200 OK in 119ms (Views: 108.2ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:35:27 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (3.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (4.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (4.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (28.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (9.8ms)
+Completed 200 OK in 118ms (Views: 102.1ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:35:29 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (2.9ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (2.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (2.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (25.7ms)
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (11.9ms)
+Completed 200 OK in 123ms (Views: 110.3ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:35:30 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.6ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (24.9ms)
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (18.5ms)
+Completed 200 OK in 132ms (Views: 120.9ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:35:30 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.6ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (6.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (20.4ms)
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (16.4ms)
+Completed 200 OK in 106ms (Views: 90.6ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:35:48 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (2.9ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  Rendered listings/show.html.haml within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 2.9ms)
+
+
+  
+ActionView::Template::Error (The line was indented 2 levels deeper than the previous line.):
+    11:   =submit_tag 'Submit', class:'btn btn-warning'
+    12: 
+    13:   - @listing.comments.each do |c|
+    14:       %p="#{c.user.full_name}"
+    15:       %p="#{c.content}"
+  
+app/views/listings/show.html.haml:14
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (15.5ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (72.1ms)
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:35:52 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.8ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (5.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (5.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (29.3ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (14.1ms)
+Completed 200 OK in 116ms (Views: 92.8ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:36:02 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (6.7ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (26.1ms)
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (9.5ms)
+Completed 200 OK in 123ms (Views: 101.5ms | ActiveRecord: 17.8ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:36:43 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (11.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (1.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (27.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (10.0ms)
+Completed 200 OK in 118ms (Views: 96.2ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:36:50 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (2.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (7.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (25.6ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (14.5ms)
+Completed 200 OK in 131ms (Views: 116.6ms | ActiveRecord: 11.9ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-11-21 13:36:53 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1P/ag6JhBa7ON3NQUmZjnWHAnzqas9E9GWvMPy8eYjUsnl0/8NPIvKpvbATn6KR6OhmRp36oBBGeOd3Kar7+2Q==", "locale"=>"en"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 20ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 13:36:53 +0100
+Processing by HomepageController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering homepage/index.html.haml within layouts/application
+  Rendered homepage/index.html.haml within layouts/application (8.0ms)
+  Rendered shared/_header.html.haml (15.7ms)
+Completed 200 OK in 133ms (Views: 128.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-11-21 13:36:56 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"tB/cdvLcVuQU7QROOqbyA8a1t6X76HNf7cMDsENUVvWnSvSAc8FLkrFKTU2NKEWwR8i9gnBvADs3j+hgMpdCJw==", "locale"=>"en"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"tB/cdvLcVuQU7QROOqbyA8a1t6X76HNf7cMDsENUVvWnSvSAc8FLkrFKTU2NKEWwR8i9gnBvADs3j+hgMpdCJw==", "locale"=>"en"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (10.6ms)
+  Rendered shared/_header.html.haml (9.4ms)
+Completed 200 OK in 113ms (Views: 112.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-11-21 13:37:06 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mQDAuPXLHPcX6KnCi/pn+Fz2VncKv2spBma0phodsvCKVehOdNYBgbJP4ME8dNBL3YtcUIE4GE3cKl92a96mIg==", "user"=>{"email"=>"benjamin.thomas@ynov.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "benjamin.thomas@ynov.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.9ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2016-11-21 12:37:07 UTC], ["last_sign_in_at", 2016-11-21 09:29:52 UTC], ["sign_in_count", 10], ["updated_at", 2016-11-21 12:37:07 UTC], ["id", 2]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 402ms (ActiveRecord: 17.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 13:37:07 +0100
+Processing by HomepageController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering homepage/index.html.haml within layouts/application
+  Rendered homepage/index.html.haml within layouts/application (2.8ms)
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (12.3ms)
+Completed 200 OK in 97ms (Views: 91.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 13:37:10 +0100
+Processing by HomepageController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering homepage/index.html.haml within layouts/application
+  Rendered homepage/index.html.haml within layouts/application (7.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (14.6ms)
+Completed 200 OK in 102ms (Views: 99.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 13:37:12 +0100
+Processing by HomepageController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering homepage/index.html.haml within layouts/application
+  Rendered homepage/index.html.haml within layouts/application (2.2ms)
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (12.0ms)
+Completed 200 OK in 88ms (Views: 84.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 13:37:13 +0100
+Processing by HomepageController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering homepage/index.html.haml within layouts/application
+  Rendered homepage/index.html.haml within layouts/application (2.1ms)
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (17.4ms)
+Completed 200 OK in 117ms (Views: 111.2ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/listings?utf8=%E2%9C%93&keywords=&commit=Search" for 127.0.0.1 at 2016-11-21 13:37:14 +0100
+Processing by ListingsController#index as HTML
+  Parameters: {"utf8"=>"✓", "keywords"=>"", "commit"=>"Search", "locale"=>"en"}
+  Rendering listings/index.html.haml within layouts/application
+  [1m[36mListing Load (1.8ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (title ILIKE '%%')[0m
+  [1m[36mCategory Load (5.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (4.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCategory Load (3.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered modals/_modal.html.haml (11.9ms)
+  Rendered listings/index.html.haml within layouts/application (55.5ms)
+  Rendered shared/_header.html.haml (7.8ms)
+Completed 200 OK in 136ms (Views: 116.2ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:37:15 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (27.1ms)
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (17.3ms)
+Completed 200 OK in 117ms (Views: 100.0ms | ActiveRecord: 13.8ms)
+
+
+Started POST "/account/comments" for 127.0.0.1 at 2016-11-21 13:37:19 +0100
+Processing by Account::CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UC1So5jmDoLpb24bc6PZPatgsKJLO6+U6gviUU26lUSJXrYf6N8vy2KRZ+Fq19NxS96FnxW4FazAwzQnR8+Gtg==", "comment"=>{"content"=>"b", "listing_id"=>"25"}, "commit"=>"Submit", "locale"=>"en"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.9ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "listing_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "b"], ["user_id", 2], ["listing_id", 25], ["created_at", 2016-11-21 12:37:20 UTC], ["updated_at", 2016-11-21 12:37:20 UTC]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/listings/25
+Completed 302 Found in 12ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:37:20 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (2.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (21.4ms)
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (23.6ms)
+Completed 200 OK in 108ms (Views: 98.2ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-11-21 13:37:35 +0100
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories"[0m
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts"[0m
+  [1m[36mContact Load (2.5ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" ORDER BY "contacts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "listings"[0m
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" ORDER BY "listings"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (56.8ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (7.1ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_navigation.html.haml (16.7ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (14.7ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/pjax.html.haml (13.3ms)
+Completed 200 OK in 1048ms (Views: 635.2ms | ActiveRecord: 23.0ms)
+
+
+Started GET "/admin/user?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-11-21 13:37:51 +0100
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY users.id desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (154.5ms)
+Completed 200 OK in 208ms (Views: 191.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/user/4?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-11-21 13:37:56 +0100
+Processing by RailsAdmin::MainController#show as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user", "id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/show.html.haml within layouts/rails_admin/pjax
+  [1m[36mListing Load (1.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."user_id" = $1[0m  [["user_id", 4]]
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/show.html.haml within layouts/rails_admin/pjax (38.7ms)
+Completed 200 OK in 105ms (Views: 80.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/admin/user/4/edit?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-11-21 13:38:00 +0100
+Processing by RailsAdmin::MainController#edit as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user", "id"=>"4"}
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/edit.html.haml within layouts/rails_admin/pjax
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_field.html.haml (1.3ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_field.html.haml (1.6ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_boolean.html.haml (1.5ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_field.html.haml (6.0ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_datetime.html.haml (12.3ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_datetime.html.haml (16.6ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_datetime.html.haml (0.9ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_datetime.html.haml (0.7ms)
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "listings"[0m
+  [1m[36mListing Load (0.6ms)[0m  [1m[34mSELECT "listings".* FROM "listings" ORDER BY listings.id desc[0m
+  [1m[36mCategory Load (5.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN (3, 5, 4)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (4, 2)[0m
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_filtering_multiselect.html.haml (50.1ms)
+  [1m[36mContact Load (5.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts"[0m
+  [1m[36mContact Load (1.7ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" ORDER BY contacts.id desc[0m
+  [1m[36mListing Load (8.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."id" IN (25, 26)[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (4, 2)[0m
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_form_filtering_multiselect.html.haml (45.1ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/_submit_buttons.html.haml (16.8ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/edit.html.haml within layouts/rails_admin/pjax (312.1ms)
+Completed 200 OK in 372ms (Views: 322.4ms | ActiveRecord: 31.8ms)
+
+
+Started PUT "/admin/user/4/edit" for 127.0.0.1 at 2016-11-21 13:38:07 +0100
+Processing by RailsAdmin::MainController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Av2/WZDghkNx6bajCUMYr5hyOO0yYEVF3VeIQrVt4xCIroFGqKtKZx5UwGxQZxSn6XQmzoYbuDsu7ELjkFjdPQ==", "user"=>{"first_name"=>"coquin", "last_name"=>"desBois", "email"=>"test@test.fr", "is_admin"=>"0", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "reset_password_sent_at"=>"[FILTERED]", "remember_created_at"=>"", "sign_in_count"=>"2", "current_sign_in_at"=>"January 20, 2012 17:00", "last_sign_in_at"=>"January 20, 2009 01:00", "current_sign_in_ip"=>"", "last_sign_in_ip"=>"", "listing_ids"=>["", "", "25", "26"], "contact_ids"=>["", "", "8", "10", "13"]}, "return_to"=>"http://localhost:3000/admin/user/4", "_save"=>"", "model_name"=>"user", "id"=>"4"}
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mListing Load (2.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."id" IN (25, 26)[0m
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" IN (8, 10, 13)[0m
+  [1m[36mContact Load (2.8ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[35m (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (7.5ms)[0m  [1m[33mUPDATE "users" SET "first_name" = $1, "last_name" = $2, "is_admin" = $3, "reset_password_sent_at" = $4, "remember_created_at" = $5, "current_sign_in_at" = $6, "last_sign_in_at" = $7, "updated_at" = $8 WHERE "users"."id" = $9[0m  [["first_name", "coquin"], ["last_name", "desBois"], ["is_admin", false], ["reset_password_sent_at", ""], ["remember_created_at", ""], ["current_sign_in_at", 2012-01-20 17:00:00 UTC], ["last_sign_in_at", 2009-01-20 01:00:00 UTC], ["updated_at", 2016-11-21 12:38:07 UTC], ["id", 4]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/user/4
+Completed 302 Found in 60ms (ActiveRecord: 24.0ms)
+
+
+Started GET "/admin/user/4" for 127.0.0.1 at 2016-11-21 13:38:07 +0100
+Processing by RailsAdmin::MainController#show as HTML
+  Parameters: {"model_name"=>"user", "id"=>"4"}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/show.html.haml within layouts/rails_admin/application
+  [1m[36mListing Load (0.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."user_id" = $1[0m  [["user_id", 4]]
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/show.html.haml within layouts/rails_admin/application (37.0ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (8.2ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_navigation.html.haml (21.3ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (20.5ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/pjax.html.haml (40.4ms)
+Completed 200 OK in 547ms (Views: 516.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:38:10 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (5.1ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (4.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (9.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (46.8ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (13.2ms)
+Completed 200 OK in 174ms (Views: 147.1ms | ActiveRecord: 20.9ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:38:40 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (3.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (4.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (8.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (30.1ms)
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (15.6ms)
+Completed 200 OK in 128ms (Views: 99.8ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:38:50 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (28.6ms)
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (25.1ms)
+Completed 200 OK in 143ms (Views: 128.4ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:39:13 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.5ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (6.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (6.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (28.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (7.2ms)
+Completed 200 OK in 118ms (Views: 100.3ms | ActiveRecord: 15.7ms)
+
+
+Started POST "/account/comments" for 127.0.0.1 at 2016-11-21 13:39:32 +0100
+Processing by Account::CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UxESI2Z/9hvXQZGF6Uoa70LBV9g1Ukkkt0TwslnghYZRabvdRK51cqYCmrf+bzYwklPir6XEt0QQatpEUA6IvA==", "comment"=>{"content"=>"cool", "listing_id"=>"25"}, "commit"=>"Submit", "locale"=>"en"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.8ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "listing_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "cool"], ["user_id", 2], ["listing_id", 25], ["created_at", 2016-11-21 12:39:32 UTC], ["updated_at", 2016-11-21 12:39:32 UTC]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/listings/25
+Completed 302 Found in 17ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:39:32 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.1ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (6.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (32.7ms)
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (16.5ms)
+Completed 200 OK in 126ms (Views: 108.5ms | ActiveRecord: 15.4ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:40:14 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.2ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (6.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (45.5ms)
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (55.0ms)
+Completed 200 OK in 189ms (Views: 165.6ms | ActiveRecord: 17.5ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:40:16 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (1.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (5.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (28.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (13.5ms)
+Completed 200 OK in 121ms (Views: 106.4ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:40:47 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.5ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (5.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (50.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (9.0ms)
+Completed 200 OK in 125ms (Views: 103.5ms | ActiveRecord: 19.6ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:41:06 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (9.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (9.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (41.6ms)
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (18.3ms)
+Completed 200 OK in 131ms (Views: 104.1ms | ActiveRecord: 24.6ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:41:15 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (1.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (2.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (31.8ms)
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (14.9ms)
+Completed 200 OK in 122ms (Views: 108.2ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:41:40 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (4.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (4.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (34.1ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (11.3ms)
+Completed 200 OK in 131ms (Views: 113.3ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:41:58 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (2.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (29.6ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (10.3ms)
+Completed 200 OK in 111ms (Views: 94.6ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:42:05 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.2ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (2.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (32.0ms)
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (10.9ms)
+Completed 200 OK in 111ms (Views: 102.4ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:43:50 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (3.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (54.1ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (14.4ms)
+Completed 200 OK in 142ms (Views: 128.1ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:43:58 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (4.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (26.3ms)
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (11.2ms)
+Completed 200 OK in 112ms (Views: 96.2ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:44:04 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (35.4ms)
+  [1m[36mUser Load (9.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (25.6ms)
+Completed 200 OK in 121ms (Views: 97.0ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 13:44:32 +0100
+Processing by HomepageController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering homepage/index.html.haml within layouts/application
+  Rendered homepage/index.html.haml within layouts/application (7.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (9.5ms)
+Completed 200 OK in 92ms (Views: 89.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/listings/24" for 127.0.0.1 at 2016-11-21 13:44:36 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"24"}
+  [1m[36mListing Load (0.2ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (5.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mComment Load (4.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 24]]
+  Rendered listings/show.html.haml within layouts/application (28.2ms)
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (15.7ms)
+Completed 200 OK in 116ms (Views: 98.3ms | ActiveRecord: 15.2ms)
+
+
+Started POST "/account/comments" for 127.0.0.1 at 2016-11-21 13:44:41 +0100
+Processing by Account::CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oSEjghl1OKoffJ8/twkBQaGC2/2UUD9jFLFNuqL3TYajWYp8O6S7w24/lA2gLC2ecRBuigTGwQOzn2dMqxlAvA==", "comment"=>{"content"=>"wooow", "listing_id"=>"24"}, "commit"=>"Submit", "locale"=>"en"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "listing_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "wooow"], ["user_id", 2], ["listing_id", 24], ["created_at", 2016-11-21 12:44:41 UTC], ["updated_at", 2016-11-21 12:44:41 UTC]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/listings/24
+Completed 302 Found in 16ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/listings/24" for 127.0.0.1 at 2016-11-21 13:44:41 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"24"}
+  [1m[36mListing Load (1.1ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (3.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mComment Load (2.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 24]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (16.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (9.3ms)
+Completed 200 OK in 123ms (Views: 112.0ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/listings/25" for 127.0.0.1 at 2016-11-21 13:44:45 +0100
+Processing by ListingsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"25"}
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering listings/show.html.haml within layouts/application
+  [1m[36mCategory Load (7.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Load (2.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered listings/show.html.haml within layouts/application (30.6ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (11.0ms)
+Completed 200 OK in 115ms (Views: 100.0ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/account/users" for 127.0.0.1 at 2016-11-21 13:49:09 +0100
+Processing by Account::UsersController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/users/index.html.haml within layouts/account
+  Rendered account/users/index.html.haml within layouts/account (14.3ms)
+  Rendered shared/_header.html.haml (8.1ms)
+  Rendered account/shared/_nav.html.haml (2.2ms)
+Completed 200 OK in 103ms (Views: 88.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/account/messages" for 127.0.0.1 at 2016-11-21 13:51:15 +0100
+Processing by Account::MessagesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/messages/index.html.haml within layouts/account
+  [1m[36mContact Load (5.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (user_id = 2) ORDER BY contacts.created_at DESC[0m
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  Rendered account/messages/index.html.haml within layouts/account (23.6ms)
+  Rendered shared/_header.html.haml (7.4ms)
+  Rendered account/shared/_nav.html.haml (2.0ms)
+Completed 200 OK in 109ms (Views: 93.5ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/account/contacts" for 127.0.0.1 at 2016-11-21 13:51:16 +0100
+Processing by Account::ContactsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/contacts/index.html.haml within layouts/account
+  [1m[36mContact Load (0.7ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" LEFT JOIN listings ON listings.id = contacts.listing_id WHERE (listings.user_id = 2) ORDER BY contacts.created_at DESC[0m
+  Rendered account/contacts/index.html.haml within layouts/account (18.1ms)
+  Rendered shared/_header.html.haml (3.4ms)
+  Rendered account/shared/_nav.html.haml (11.3ms)
+Completed 200 OK in 108ms (Views: 97.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/account/users" for 127.0.0.1 at 2016-11-21 13:51:17 +0100
+Processing by Account::UsersController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/users/index.html.haml within layouts/account
+  Rendered account/users/index.html.haml within layouts/account (39.5ms)
+  Rendered shared/_header.html.haml (5.6ms)
+  Rendered account/shared/_nav.html.haml (3.0ms)
+Completed 200 OK in 133ms (Views: 119.4ms | ActiveRecord: 2.6ms)
+
+
+Started PATCH "/account/users/2" for 127.0.0.1 at 2016-11-21 13:51:27 +0100
+Processing by Account::UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uHKMdXuEgZQrLOEeRD5QCHFyM8BWIsmx/zIzS8zbxIf3lnK+MiKedjQOfvbORKjfzn8pqb9q7Ngfl5rPS4ZNUA==", "user"=>{"email"=>"benjamin.thomas@ynov.com", "first_name"=>"benja", "last_name"=>"thomas"}, "commit"=>"Save", "locale"=>"en", "id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[33mUPDATE "users" SET "first_name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["first_name", "benja"], ["updated_at", 2016-11-21 12:51:27 UTC], ["id", 2]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/account/users
+Completed 302 Found in 18ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/account/users" for 127.0.0.1 at 2016-11-21 13:51:27 +0100
+Processing by Account::UsersController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/users/index.html.haml within layouts/account
+  Rendered account/users/index.html.haml within layouts/account (11.8ms)
+  Rendered shared/_header.html.haml (8.3ms)
+  Rendered account/shared/_nav.html.haml (2.3ms)
+Completed 200 OK in 92ms (Views: 83.8ms | ActiveRecord: 3.3ms)
+
+
+Started PATCH "/account/users/2" for 127.0.0.1 at 2016-11-21 13:51:29 +0100
+Processing by Account::UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P1EpjnOCRMCCVjVK/it9YoleMA0VtQ6fGvsnv5qxCMM9KYBwUVPHqfMVPnjpDlG9WcyFeoUj8P+91Q1Jk18F+Q==", "user"=>{"email"=>"benjamin.thomas@ynov.com", "first_name"=>"benja", "last_name"=>"thomas"}, "commit"=>"Save", "locale"=>"en", "id"=>"2"}
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/account/users
+Completed 302 Found in 16ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/account/users" for 127.0.0.1 at 2016-11-21 13:51:29 +0100
+Processing by Account::UsersController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/users/index.html.haml within layouts/account
+  Rendered account/users/index.html.haml within layouts/account (12.0ms)
+  Rendered shared/_header.html.haml (8.6ms)
+  Rendered account/shared/_nav.html.haml (5.1ms)
+Completed 200 OK in 102ms (Views: 93.2ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/account/users/2" for 127.0.0.1 at 2016-11-21 13:51:30 +0100
+Processing by Account::UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KYqvJmRzNTiNH22D9b2iIbZi7LkCSYFpJJnNVUrKkbwr8gbYRqK2UfxcZrHimI7+ZvBZzpLffwmDt+ejQySchg==", "user"=>{"email"=>"benjamin.thomas@ynov.com", "first_name"=>"benja", "last_name"=>"thomas"}, "commit"=>"Save", "locale"=>"en", "id"=>"2"}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/account/users
+Completed 302 Found in 15ms (ActiveRecord: 9.8ms)
+
+
+Started GET "/account/users" for 127.0.0.1 at 2016-11-21 13:51:30 +0100
+Processing by Account::UsersController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/users/index.html.haml within layouts/account
+  Rendered account/users/index.html.haml within layouts/account (19.5ms)
+  Rendered shared/_header.html.haml (7.1ms)
+  Rendered account/shared/_nav.html.haml (2.1ms)
+Completed 200 OK in 104ms (Views: 98.0ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/account/users/2" for 127.0.0.1 at 2016-11-21 13:51:30 +0100
+Processing by Account::UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5PyUZzhnsf0PZcl6PP/sfB3X+HVQzfvGNa1KRU8a2tfmhD2ZGrYylH4mwkgr2sCjzUVNAsBbBaaSg2CzRvTX7Q==", "user"=>{"email"=>"benjamin.thomas@ynov.com", "first_name"=>"benja", "last_name"=>"thomas"}, "commit"=>"Save", "locale"=>"en", "id"=>"2"}
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/account/users
+Completed 302 Found in 12ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/account/users" for 127.0.0.1 at 2016-11-21 13:51:30 +0100
+Processing by Account::UsersController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/users/index.html.haml within layouts/account
+  Rendered account/users/index.html.haml within layouts/account (13.2ms)
+  Rendered shared/_header.html.haml (14.7ms)
+  Rendered account/shared/_nav.html.haml (4.6ms)
+Completed 200 OK in 110ms (Views: 101.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/account/messages" for 127.0.0.1 at 2016-11-21 13:51:49 +0100
+Processing by Account::MessagesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/messages/index.html.haml within layouts/account
+  [1m[36mContact Load (2.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (user_id = 2) ORDER BY contacts.created_at DESC[0m
+  [1m[36mListing Load (3.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  Rendered account/messages/index.html.haml within layouts/account (27.4ms)
+  Rendered shared/_header.html.haml (7.0ms)
+  Rendered account/shared/_nav.html.haml (6.8ms)
+Completed 200 OK in 127ms (Views: 117.2ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/account/contacts" for 127.0.0.1 at 2016-11-21 13:51:56 +0100
+Processing by Account::ContactsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/contacts/index.html.haml within layouts/account
+  [1m[36mContact Load (5.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" LEFT JOIN listings ON listings.id = contacts.listing_id WHERE (listings.user_id = 2) ORDER BY contacts.created_at DESC[0m
+  Rendered account/contacts/index.html.haml within layouts/account (8.7ms)
+  Rendered shared/_header.html.haml (7.4ms)
+  Rendered account/shared/_nav.html.haml (1.9ms)
+Completed 200 OK in 104ms (Views: 91.4ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/account/messages" for 127.0.0.1 at 2016-11-21 13:52:10 +0100
+Processing by Account::MessagesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/messages/index.html.haml within layouts/account
+  [1m[36mContact Load (2.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (user_id = 2) ORDER BY contacts.created_at DESC[0m
+  [1m[36mListing Load (4.5ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  Rendered account/messages/index.html.haml within layouts/account (20.3ms)
+  Rendered shared/_header.html.haml (11.6ms)
+  Rendered account/shared/_nav.html.haml (2.0ms)
+Completed 200 OK in 127ms (Views: 115.1ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/account/contacts" for 127.0.0.1 at 2016-11-21 13:52:54 +0100
+Processing by Account::ContactsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/contacts/index.html.haml within layouts/account
+  [1m[36mContact Load (5.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" LEFT JOIN listings ON listings.id = contacts.listing_id WHERE (listings.user_id = 2) ORDER BY contacts.created_at DESC[0m
+  Rendered account/contacts/index.html.haml within layouts/account (9.7ms)
+  Rendered shared/_header.html.haml (7.1ms)
+  Rendered account/shared/_nav.html.haml (2.1ms)
+Completed 200 OK in 97ms (Views: 87.4ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 13:53:00 +0100
+Processing by HomepageController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering homepage/index.html.haml within layouts/application
+  Rendered homepage/index.html.haml within layouts/application (2.1ms)
+  Rendered shared/_header.html.haml (3.2ms)
+Completed 200 OK in 74ms (Views: 73.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-11-21 13:53:06 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"gp6KE7kVm0aV994AuuOQm0KlZBAJ06YF/x1XrLp496aIR4fMpzVXhVwkzUD3e2YLzkTJ+rVyvYFOCXv87hTlww==", "locale"=>"en"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"gp6KE7kVm0aV994AuuOQm0KlZBAJ06YF/x1XrLp496aIR4fMpzVXhVwkzUD3e2YLzkTJ+rVyvYFOCXv87hTlww==", "locale"=>"en"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (15.4ms)
+  Rendered shared/_header.html.haml (15.4ms)
+Completed 200 OK in 108ms (Views: 106.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-11-21 13:53:12 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fNQIZWHohuNsnsC58xiX0l13IjqAp9F/waYm1Bx31aN2DQW6f8hKIKVN0/m+gGFC0ZaP0DwGyvtwsgqESBvHxg==", "user"=>{"email"=>"test@test.fr", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "test@test.fr"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2016-11-21 12:53:12 UTC], ["last_sign_in_at", 2012-01-20 17:00:00 UTC], ["sign_in_count", 3], ["updated_at", 2016-11-21 12:53:12 UTC], ["id", 4]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 382ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 13:53:13 +0100
+Processing by HomepageController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering homepage/index.html.haml within layouts/application
+  Rendered homepage/index.html.haml within layouts/application (2.4ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (15.8ms)
+Completed 200 OK in 96ms (Views: 93.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/listings?utf8=%E2%9C%93&keywords=&commit=Search" for 127.0.0.1 at 2016-11-21 13:53:14 +0100
+Processing by ListingsController#index as HTML
+  Parameters: {"utf8"=>"✓", "keywords"=>"", "commit"=>"Search", "locale"=>"en"}
+  Rendering listings/index.html.haml within layouts/application
+  [1m[36mListing Load (3.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (title ILIKE '%%')[0m
+  [1m[36mCategory Load (2.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCategory Load (3.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered modals/_modal.html.haml (4.0ms)
+  Rendered listings/index.html.haml within layouts/application (50.8ms)
+  Rendered shared/_header.html.haml (7.4ms)
+Completed 200 OK in 127ms (Views: 106.8ms | ActiveRecord: 15.4ms)
+
+
+Started POST "/listings/contact" for 127.0.0.1 at 2016-11-21 13:53:24 +0100
+Processing by ListingsController#contact as */*
+  Parameters: {"listing_id"=>"25", "message"=>"test", "locale"=>"en"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.3ms)[0m  [1m[32mINSERT INTO "contacts" ("listing_id", "user_id", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["listing_id", 25], ["user_id", 4], ["message", "test"], ["created_at", 2016-11-21 12:53:24 UTC], ["updated_at", 2016-11-21 12:53:24 UTC]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering user_mailer/new_contact.html.haml within layouts/mailer
+  Rendered user_mailer/new_contact.html.haml within layouts/mailer (3.3ms)
+UserMailer#new_contact: processed outbound mail in 246.9ms
+Sent mail to test@test.fr (28.0ms)
+Date: Mon, 21 Nov 2016 13:53:25 +0100
+From: from@example.com
+To: test@test.fr
+Message-ID: <5832ee451f4d8_8d52eb4d106626b@ynov-VirtualBox.mail>
+Subject: =?UTF-8?Q?R=C3=A9ponse_=C3=A0_votre_annonce:?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+<meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Type'>=
+
+</head>
+<body>
+<p></p>
+<p>
+test@test.fr
+est int=C3=A9ress=C3=A9 par votre annonce
+</p>
+test
+</body>
+</html>
+
+  </body>
+</html>
+
+DEPRECATION WARNING: `:nothing` option is deprecated and will be removed in Rails 5.1. Use `head` method to respond with empty response body. (called from contact at /home/ynov/apps/listings/app/controllers/listings_controller.rb:36)
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 585ms (Views: 6.3ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/account/contacts" for 127.0.0.1 at 2016-11-21 13:53:27 +0100
+Processing by Account::ContactsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/contacts/index.html.haml within layouts/account
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" LEFT JOIN listings ON listings.id = contacts.listing_id WHERE (listings.user_id = 2) ORDER BY contacts.created_at DESC[0m
+  Rendered account/contacts/index.html.haml within layouts/account (3.7ms)
+  Rendered shared/_header.html.haml (7.0ms)
+  Rendered account/shared/_nav.html.haml (2.2ms)
+Completed 200 OK in 138ms (Views: 117.4ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/account/contacts" for 127.0.0.1 at 2016-11-21 13:53:29 +0100
+Processing by Account::ContactsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/contacts/index.html.haml within layouts/account
+  [1m[36mContact Load (6.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" LEFT JOIN listings ON listings.id = contacts.listing_id WHERE (listings.user_id = 2) ORDER BY contacts.created_at DESC[0m
+  Rendered account/contacts/index.html.haml within layouts/account (9.3ms)
+  Rendered shared/_header.html.haml (6.7ms)
+  Rendered account/shared/_nav.html.haml (1.9ms)
+Completed 200 OK in 95ms (Views: 84.8ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/account/user" for 127.0.0.1 at 2016-11-21 13:53:41 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/account/user"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [67 times] (42.0ms)
+  Rendered collection of /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (7.0ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.5ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.1ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (150.6ms)
+Started GET "/admin" for 127.0.0.1 at 2016-11-21 13:53:44 +0100
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (6.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories"[0m
+  [1m[36mCategory Load (3.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[36mComment Load (8.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts"[0m
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" ORDER BY "contacts"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "listings"[0m
+  [1m[36mListing Load (3.8ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" ORDER BY "listings"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (30.3ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (4.1ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_navigation.html.haml (12.2ms)
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (14.2ms)
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/pjax.html.haml (10.3ms)
+Completed 200 OK in 464ms (Views: 419.9ms | ActiveRecord: 26.1ms)
+
+
+Started GET "/admin/listing?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-11-21 13:53:50 +0100
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"listing"}
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" ORDER BY listings.id desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN (3, 5, 4)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (4, 2)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "listings"[0m
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (122.9ms)
+Completed 200 OK in 167ms (Views: 145.7ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/listings/contact" for 127.0.0.1 at 2016-11-21 13:54:02 +0100
+Processing by ListingsController#contact as */*
+  Parameters: {"listing_id"=>"25", "message"=>"test", "locale"=>"en"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "contacts" ("listing_id", "user_id", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["listing_id", 25], ["user_id", 4], ["message", "test"], ["created_at", 2016-11-21 12:54:02 UTC], ["updated_at", 2016-11-21 12:54:02 UTC]]
+  [1m[35m (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mListing Load (0.5ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering user_mailer/new_contact.html.haml within layouts/mailer
+  Rendered user_mailer/new_contact.html.haml within layouts/mailer (5.1ms)
+UserMailer#new_contact: processed outbound mail in 21.8ms
+Sent mail to test@test.fr (5.8ms)
+Date: Mon, 21 Nov 2016 13:54:02 +0100
+From: from@example.com
+To: test@test.fr
+Message-ID: <5832ee6a8f728_8d52eb4d106638c@ynov-VirtualBox.mail>
+Subject: =?UTF-8?Q?R=C3=A9ponse_=C3=A0_votre_annonce:?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+<meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Type'>=
+
+</head>
+<body>
+<p></p>
+<p>
+test@test.fr
+est int=C3=A9ress=C3=A9 par votre annonce
+</p>
+test
+</body>
+</html>
+
+  </body>
+</html>
+
+DEPRECATION WARNING: `:nothing` option is deprecated and will be removed in Rails 5.1. Use `head` method to respond with empty response body. (called from contact at /home/ynov/apps/listings/app/controllers/listings_controller.rb:36)
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 53ms (Views: 1.0ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/account/contacts" for 127.0.0.1 at 2016-11-21 13:54:05 +0100
+Processing by Account::ContactsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/contacts/index.html.haml within layouts/account
+  [1m[36mContact Load (4.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" LEFT JOIN listings ON listings.id = contacts.listing_id WHERE (listings.user_id = 2) ORDER BY contacts.created_at DESC[0m
+  Rendered account/contacts/index.html.haml within layouts/account (7.3ms)
+  Rendered shared/_header.html.haml (8.2ms)
+  Rendered account/shared/_nav.html.haml (5.1ms)
+Completed 200 OK in 72ms (Views: 60.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/account/contacts" for 127.0.0.1 at 2016-11-21 13:54:06 +0100
+Processing by Account::ContactsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/contacts/index.html.haml within layouts/account
+  [1m[36mContact Load (4.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" LEFT JOIN listings ON listings.id = contacts.listing_id WHERE (listings.user_id = 2) ORDER BY contacts.created_at DESC[0m
+  Rendered account/contacts/index.html.haml within layouts/account (7.6ms)
+  Rendered shared/_header.html.haml (6.9ms)
+  Rendered account/shared/_nav.html.haml (2.1ms)
+Completed 200 OK in 96ms (Views: 85.4ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/account/users" for 127.0.0.1 at 2016-11-21 13:54:12 +0100
+Processing by Account::UsersController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering account/users/index.html.haml within layouts/account
+  Rendered account/users/index.html.haml within layouts/account (18.5ms)
+  Rendered shared/_header.html.haml (32.3ms)
+  Rendered account/shared/_nav.html.haml (5.6ms)
+Completed 200 OK in 134ms (Views: 120.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/account/messages" for 127.0.0.1 at 2016-11-21 13:54:14 +0100
+Processing by Account::MessagesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering account/messages/index.html.haml within layouts/account
+  [1m[36mContact Load (3.9ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (user_id = 4) ORDER BY contacts.created_at DESC[0m
+  [1m[36mListing Load (1.1ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendered account/messages/index.html.haml within layouts/account (28.7ms)
+  Rendered shared/_header.html.haml (8.3ms)
+  Rendered account/shared/_nav.html.haml (6.5ms)
+Completed 200 OK in 124ms (Views: 108.2ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/account/contacts" for 127.0.0.1 at 2016-11-21 13:54:21 +0100
+Processing by Account::ContactsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering account/contacts/index.html.haml within layouts/account
+  [1m[36mContact Load (5.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" LEFT JOIN listings ON listings.id = contacts.listing_id WHERE (listings.user_id = 4) ORDER BY contacts.created_at DESC[0m
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mListing Load (4.1ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendered account/contacts/index.html.haml within layouts/account (38.6ms)
+  Rendered shared/_header.html.haml (7.7ms)
+  Rendered account/shared/_nav.html.haml (2.3ms)
+Completed 200 OK in 129ms (Views: 112.5ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/account/messages" for 127.0.0.1 at 2016-11-21 13:54:37 +0100
+Processing by Account::MessagesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering account/messages/index.html.haml within layouts/account
+  [1m[36mContact Load (5.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (user_id = 4) ORDER BY contacts.created_at DESC[0m
+  [1m[36mListing Load (4.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendered account/messages/index.html.haml within layouts/account (42.7ms)
+  Rendered shared/_header.html.haml (6.3ms)
+  Rendered account/shared/_nav.html.haml (6.1ms)
+Completed 200 OK in 128ms (Views: 112.5ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/admin/contact?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-11-21 13:54:56 +0100
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"contact"}
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mContact Load (9.8ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" ORDER BY contacts.id desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[36mListing Load (3.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE "listings"."id" IN (25, 26)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (4, 2)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts"[0m
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (193.1ms)
+Completed 200 OK in 220ms (Views: 197.4ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/admin/listing/25?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-11-21 13:55:09 +0100
+Processing by RailsAdmin::MainController#show as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"listing", "id"=>"25"}
+  [1m[36mListing Load (5.3ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 ORDER BY "listings"."id" ASC LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/show.html.haml within layouts/rails_admin/pjax
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."listing_id" = $1[0m  [["listing_id", 25]]
+  Rendered /home/ynov/.rvm/gems/ruby-2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/show.html.haml within layouts/rails_admin/pjax (27.5ms)
+Completed 200 OK in 82ms (Views: 56.5ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-21 13:55:50 +0100
+Processing by HomepageController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering homepage/index.html.haml within layouts/application
+  Rendered homepage/index.html.haml within layouts/application (7.3ms)
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered shared/_header.html.haml (11.2ms)
+Completed 200 OK in 83ms (Views: 78.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/listings?utf8=%E2%9C%93&keywords=&commit=Search" for 127.0.0.1 at 2016-11-21 13:55:51 +0100
+Processing by ListingsController#index as HTML
+  Parameters: {"utf8"=>"✓", "keywords"=>"", "commit"=>"Search", "locale"=>"en"}
+  Rendering listings/index.html.haml within layouts/application
+  [1m[36mListing Load (2.7ms)[0m  [1m[34mSELECT "listings".* FROM "listings" WHERE (title ILIKE '%%')[0m
+  [1m[36mCategory Load (1.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (2.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCategory Load (2.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered modals/_modal.html.haml (7.3ms)
+  Rendered listings/index.html.haml within layouts/application (44.8ms)
+  Rendered shared/_header.html.haml (2.9ms)
+Completed 200 OK in 114ms (Views: 101.0ms | ActiveRecord: 12.1ms)
+
+
+Started POST "/listings/contact" for 127.0.0.1 at 2016-11-21 13:56:04 +0100
+Processing by ListingsController#contact as */*
+  Parameters: {"listing_id"=>"25", "message"=>"a", "locale"=>"en"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "contacts" ("listing_id", "user_id", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["listing_id", 25], ["user_id", 2], ["message", "a"], ["created_at", 2016-11-21 12:56:04 UTC], ["updated_at", 2016-11-21 12:56:04 UTC]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mListing Load (0.2ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering user_mailer/new_contact.html.haml within layouts/mailer
+  Rendered user_mailer/new_contact.html.haml within layouts/mailer (1.9ms)
+UserMailer#new_contact: processed outbound mail in 25.1ms
+Sent mail to test@test.fr (6.4ms)
+Date: Mon, 21 Nov 2016 13:56:04 +0100
+From: from@example.com
+To: test@test.fr
+Message-ID: <5832eee4e209d_8d52eb4eb466470@ynov-VirtualBox.mail>
+Subject: =?UTF-8?Q?R=C3=A9ponse_=C3=A0_votre_annonce:?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+<head>
+<meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Type'>=
+
+</head>
+<body>
+<p></p>
+<p>
+benjamin.thomas@ynov.com
+est int=C3=A9ress=C3=A9 par votre annonce
+</p>
+a
+</body>
+</html>
+
+  </body>
+</html>
+
+DEPRECATION WARNING: `:nothing` option is deprecated and will be removed in Rails 5.1. Use `head` method to respond with empty response body. (called from contact at /home/ynov/apps/listings/app/controllers/listings_controller.rb:36)
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 54ms (Views: 3.1ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/account/users" for 127.0.0.1 at 2016-11-21 13:56:06 +0100
+Processing by Account::UsersController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/users/index.html.haml within layouts/account
+  Rendered account/users/index.html.haml within layouts/account (20.7ms)
+  Rendered shared/_header.html.haml (3.0ms)
+  Rendered account/shared/_nav.html.haml (2.1ms)
+Completed 200 OK in 114ms (Views: 106.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/account/contacts" for 127.0.0.1 at 2016-11-21 13:56:07 +0100
+Processing by Account::ContactsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/contacts/index.html.haml within layouts/account
+  [1m[36mContact Load (4.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" LEFT JOIN listings ON listings.id = contacts.listing_id WHERE (listings.user_id = 2) ORDER BY contacts.created_at DESC[0m
+  Rendered account/contacts/index.html.haml within layouts/account (8.8ms)
+  Rendered shared/_header.html.haml (7.1ms)
+  Rendered account/shared/_nav.html.haml (9.4ms)
+Completed 200 OK in 99ms (Views: 87.6ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/account/messages" for 127.0.0.1 at 2016-11-21 13:56:09 +0100
+Processing by Account::MessagesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/messages/index.html.haml within layouts/account
+  [1m[36mContact Load (9.8ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (user_id = 2) ORDER BY contacts.created_at DESC[0m
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mListing Load (1.6ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  Rendered account/messages/index.html.haml within layouts/account (28.0ms)
+  Rendered shared/_header.html.haml (7.0ms)
+  Rendered account/shared/_nav.html.haml (11.2ms)
+Completed 200 OK in 124ms (Views: 103.0ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/account/contacts" for 127.0.0.1 at 2016-11-21 13:56:15 +0100
+Processing by Account::ContactsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering account/contacts/index.html.haml within layouts/account
+  [1m[36mContact Load (2.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" LEFT JOIN listings ON listings.id = contacts.listing_id WHERE (listings.user_id = 4) ORDER BY contacts.created_at DESC[0m
+  [1m[36mListing Load (2.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mListing Load (0.4ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendered account/contacts/index.html.haml within layouts/account (82.6ms)
+  Rendered shared/_header.html.haml (7.2ms)
+  Rendered account/shared/_nav.html.haml (5.6ms)
+Completed 200 OK in 159ms (Views: 147.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/account/contacts" for 127.0.0.1 at 2016-11-21 13:56:34 +0100
+Processing by Account::ContactsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/contacts/index.html.haml within layouts/account
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" LEFT JOIN listings ON listings.id = contacts.listing_id WHERE (listings.user_id = 2) ORDER BY contacts.created_at DESC[0m
+  Rendered account/contacts/index.html.haml within layouts/account (12.1ms)
+  Rendered shared/_header.html.haml (8.4ms)
+  Rendered account/shared/_nav.html.haml (3.9ms)
+Completed 200 OK in 93ms (Views: 86.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/account/messages" for 127.0.0.1 at 2016-11-21 13:56:35 +0100
+Processing by Account::MessagesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering account/messages/index.html.haml within layouts/account
+  [1m[36mContact Load (0.9ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (user_id = 2) ORDER BY contacts.created_at DESC[0m
+  [1m[36mListing Load (4.9ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mListing Load (2.1ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" WHERE "listings"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  Rendered account/messages/index.html.haml within layouts/account (31.4ms)
+  Rendered shared/_header.html.haml (15.3ms)
+  Rendered account/shared/_nav.html.haml (2.3ms)
+Completed 200 OK in 115ms (Views: 96.6ms | ActiveRecord: 8.5ms)
+
+

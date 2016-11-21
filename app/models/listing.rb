@@ -1,5 +1,6 @@
 class Listing < ApplicationRecord
   validates_presence_of :title, :description, :picture
+  has_many :comment
   belongs_to :category
   belongs_to :user
   mount_uploader :picture, PictureUploader

@@ -2,11 +2,13 @@
   %h2 #{listing.title}
   .row
     .col-xs-2
-      =image_tag listing.picture, height: '150', width: '150'
+      =link_to listing_path(listing.id) do
+        =image_tag listing.picture, height: '150',width: '150'
     .col-xs-10
       .label.label-primary
       =link_to listing.category.title, listings_path(category_id: listing.category.id)
       %br
+      %p="#{listing.created_at}"
       %b
         ="#{listing.price} $"
       %p
@@ -19,17 +21,3 @@
 
 
 = render partial: '/modals/modal.html.haml'
--# %table.table.table-striped
--#   %tr
--#     %th.text-danger= "id"
--#     %th.text-danger= "title"
--#     %th.text-danger= "categorie"
-  -# - @listings.each do |listing|
-  -#   %tr
-  -#     %td
-  -#       = "#{listing.id} "
-  -#     %td
-  -#       = "#{listing.title} "
-  -#     %td
-  -#       = "#{listing.category.title}"
-  -# %br

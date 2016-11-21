@@ -1,6 +1,6 @@
 class Account::MessagesController < Account::AccountController
 
   def index
-    @messages = Contact.seller_contacts_for(current_user) 
+    @messages = Contact.buyer_messages_from(current_user) 
   end
 end

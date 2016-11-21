@@ -4,4 +4,8 @@
 %h3="#{@listing.category.title}"
 %br
 ="#{@listing.description}"
-/=image_tag @listing.picture
+
+= form_tag account_comments_path do
+  %textarea{name:'comment[content]'}
+  %input{type:'hidden',name:'comment[listing_id]',value:"#{@listing.id}"}
+  =submit_tag 'Submit', class:'btn btn-warning'

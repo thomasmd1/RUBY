@@ -6,7 +6,7 @@ class Account::UsersController < Account::AccountController
 
   def update
     @user = User.find(current_user.try(:id))
-      if params[:email]
+      if user_params.has_key?(:email)
         if @user.update_attributes(user_params)
           redirect_to account_users_path
         else
